@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- Include Prism CSS for syntax highlighting -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/themes/prism.min.css" rel="stylesheet" />
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&family=Space+Grotesk&display=swap');
+    </style>
+<link rel="stylesheet" type="text/css" href="styles.css">
+
+</head>
+<body>
+    <h1>Build your own AI powered apps</h1>
+    <h3>Choose the type of AI you want to create:</h3>
+    <select id="chatbotType">
+        <option value="type1">None</option>
+        <option value="type1">Question and answering chatbot</option>
+        <option value="type2">Semantic search engine</option>
+    </select>
+
+    <h3>Choose the type of Splitter you want to use:</h3>
+    <select id="splitterType">
+        <option value="splitter1">Character Text Splitter</option>
+        <option value="splitter2">Tiktoken Text Splitter</option>
+    </select>
+
+    <label for="chunkSize">Chunk Size:</label>
+    <input id="chunkSize" type="number" value="1000">
+
+    <label for="chunkOverlap">Chunk Overlap:</label>
+    <input id="chunkOverlap" type="number" value="200">
+
+    <p id="warningMessage" style="color: red; display: none;">Warning: Chunk size should always be greater than chunk overlap!</p>
+
+
+    
+    <p>Select document types:</p>
+    <div>
+    <input type="checkbox" id="notionFiles" value="notionFiles">
+    <label for="notionFiles">Notion files</label>
+    </div>
+    <div>
+    <input type="checkbox" id="pdfFiles" value="pdfFiles">
+    <label for="pdfFiles">PDF files</label>
+    </div>
+    <div>
+    <input type="checkbox" id="wordFiles" value="wordFiles">
+    <label for="wordFiles">Word files</label>
+    </div>
+    <div>
+    <input type="checkbox" id="csvFiles" value="csvFiles">
+    <label for="csvFiles">CSV files</label>
+    </div>
+
+    <h3>Choose your Vector Database:</h3>
+    <select id="dbType">
+        <option value="">Select a Database...</option>
+        <option value="chromaDB">ChromaDB</option>
+        <option value="pinecone">Pinecone</option>
+    </select>
+
+    <div id="saveEmbeddingsSection" style="display: none;">
+        <h4>Do you want to save your embeddings?</h4>
+        <input type="radio" id="saveEmbeddingsYes" name="saveEmbeddings" value="yes">
+        <label for="saveEmbeddingsYes">Yes</label>
+        <input type="radio" id="saveEmbeddingsNo" name="saveEmbeddings" value="no">
+        <label for="saveEmbeddingsNo">No</label>
+    </div>
+
+
+    <button id="copyButton">Copy Code</button>
+
+
+    <pre><code id="codeDisplay" class="language-python"></code></pre>
+
+    <!-- Include Prism JS for syntax highlighting -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-python.min.js"></script>
+    
+    <!-- Include the custom JavaScript file -->
+    <script src="script.js"></script>
+</body>
+</html>
