@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- Include Prism CSS for syntax highlighting -->
+    <!-- Include the Dark theme from Prism's CDN -->
+   <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/themes/prism-okaidia.min.css" rel="stylesheet" />
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&family=Space+Grotesk&display=swap');
+        
+        * {
+            box-sizing: border-box;
+        }
+        
+        body {
+            overflow-x: hidden;
+        }
+        
+        .content {
+            width: 75%;
+            margin: 0 auto;
+        }
+    </style>
+<link rel="stylesheet" type="text/css" href="styles.css">
+
+</head>
+<body>
+    <div class="content">
+        <h1>Types of Splitters</h1>
+
+        <h2>Character Text Splitter</h2>
+        <p>A Character Text Splitter is a method used to break down large amounts of text into smaller, manageable chunks or segments based on a specified number of characters.
+
+            The purpose of this is to make processing large amounts of text data easier and more efficient. It can also help ensure that the resulting chunks are small enough to be processed by a specific algorithm or machine learning model that has limits on the size of the input it can handle.
+            
+            Here's how a simple Character Text Splitter might work in Python:</p>
+
+    <pre><code class="language-javascript">
+        class CharacterTextSplitter:
+            def __init__(self, chunk_size):
+                self.chunk_size = chunk_size
+
+            def split(self, text):
+                return [text[i:i+self.chunk_size] for i in range(0, len(text), self.chunk_size)]
+
+    </code></pre>
+
+    <p>
+        In this example, chunk_size is the number of characters that each chunk of text should have. The split function takes a large string of text and splits it into chunks of chunk_size characters each. The chunks are returned as a list of strings.
+
+Keep in mind that this is a very simplistic example and real-world implementations may be more complex, taking into account issues like not splitting in the middle of words or sentences, handling different languages and scripts, etc.
+    </p>
+    <br>
+        <h2>Tiktoken Text Splitter</h2>
+        <p>Tiktoken is a Python library created by OpenAI that can be used to count how many tokens are in a given text string without making an API call. It's useful for understanding how many tokens you might be using if you are working with models like GPT-3 which have a maximum token limit.
+
+            While the primary purpose of Tiktoken is to count tokens, it can also be used to split text into tokens, which is why it may sometimes be referred to as a "text splitter".
+            
+            Here is a simple example of how you might use Tiktoken to split a text into tokens:</p>
+        <pre><code class="language-javascript">
+        from tiktoken import Tokenizer
+        tokenizer = Tokenizer()
+
+        text = "Hello, how are you?"
+        tokens = tokenizer.tokenize(text)
+
+        for token in tokens:
+            print(token)
+        </code></pre>
+        <p>
+            In this example, the tokenize method is used to split the input text into a list of tokens, and then each token is printed out.
+
+            Keep in mind that the way Tiktoken splits text into tokens might not be the same as how you would manually split text into words or sentences. It uses the same tokenization rules as GPT-3, which can sometimes be complex and unintuitive.
+        </p>
+    
+    
+        </div>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-javascript.min.js"></script>
+</body>
+</html>
